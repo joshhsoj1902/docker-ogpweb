@@ -1,0 +1,31 @@
+version: '2'
+#volumes:
+#    haproxy_cfg:
+#      driver: local
+services:
+  web:
+    build: . 
+    restart: always
+    environment:
+      - MYSQL_IP=my_db
+      - MYSQL_PORT=3306
+      - MYSQL_DBNAME=${DBNAME}
+      - MYSQL_USER=${DBUSER}
+      - MYSQL_PASS=${DBPASS}
+      - MYSQL_PREFIX=ogp_
+    ports:
+      - "80:80"
+    links:
+      - db:my_db
+    depends_on:
+      - db
+  db:
+    restart: always
+    image: mysql:5.6
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=${DBNAME}
+      - MYSQL_USER=${DBUSER}
+      - MYSQL_PASSWORD=${DBPASS}
+    ports:
+      - "3306:3306"
