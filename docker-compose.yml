@@ -4,7 +4,7 @@ version: '2'
 #      driver: local
 services:
   web:
-    build: . 
+    image: joshhsoj1902/docker-ogpweb 
     restart: always
     environment:
       - MYSQL_IP=my_db
