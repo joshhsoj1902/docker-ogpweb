@@ -1,10 +1,7 @@
 version: '2'
-#volumes:
-#    haproxy_cfg:
-#      driver: local
 services:
   web:
-    image: joshhsoj1902/docker-ogpweb 
+    image: joshhsoj1902/docker-ogpweb
     restart: always
     environment:
       - MYSQL_IP=my_db
@@ -15,6 +12,8 @@ services:
       - MYSQL_PREFIX=ogp_
     ports:
       - "80:80"
+    volumes:
+      - ./ogp_web/ogp/config:/var/www/html/includes/config
     links:
       - db:my_db
     depends_on:
@@ -27,5 +26,8 @@ services:
       - MYSQL_DATABASE=${DBNAME}
       - MYSQL_USER=${DBUSER}
       - MYSQL_PASSWORD=${DBPASS}
-    ports:
-      - "3306:3306"
+    #ports:
+    #  - "3306:3306"
+    volumes:
+      - ./ogp_web/mysql/datadir:/var/lib/mysql
+      #- ./ogp_web/mysql/config:/etc/mysql
