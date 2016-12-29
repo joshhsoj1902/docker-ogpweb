@@ -14,6 +14,6 @@
    Database Name:	   opengamepanel
    Database Prefix:    ogp_
    ```
- - Create an inital admin user with any detials you wish
+ - Create an initial admin user with any details you wish
  - Lastly remove the intall.php file with the following command
-   `docker exec -i -t dockerogpweb_web_1 rm /var/www/html/install.php` 
+   `docker exec -i -t dockerogpweb_web_1 rm /var/www/html/install.php`
