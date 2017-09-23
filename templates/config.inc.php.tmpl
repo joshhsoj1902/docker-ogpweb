@@ -1,0 +1,11 @@
+<?php
+###############################################
+# Site configuration
+###############################################
+$db_host=('{{.Env.MYSQL_IP}}');
+$db_user=('{{.Env.MYSQL_USER}}');
+$db_pass=('{{.Env.MYSQL_PASS}}');
+$db_name=('{{.Env.MYSQL_DBNAME}}');
+$table_prefix=('{{.Env.MYSQL_PREFIX}}');
+$db_type="mysql";
+?>

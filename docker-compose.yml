@@ -4,6 +4,7 @@ services:
     image: joshhsoj1902/docker-ogpweb
     restart: always
     environment:
+      - OGP_INSTALL=false
       - MYSQL_IP=my_db
       - MYSQL_PORT=3306
       - MYSQL_DBNAME=${DBNAME}
@@ -11,9 +12,7 @@ services:
       - MYSQL_PASS=${DBPASS}
       - MYSQL_PREFIX=ogp_
     ports:
-      - "80:80"
-    volumes:
-      - ./ogp_web/ogp/config:/var/www/html/includes/config
+      - "10001:80"
     links:
       - db:my_db
     depends_on:
@@ -26,8 +25,16 @@ services:
       - MYSQL_DATABASE=${DBNAME}
       - MYSQL_USER=${DBUSER}
       - MYSQL_PASSWORD=${DBPASS}
-    #ports:
-    #  - "3306:3306"
     volumes:
-      - ./ogp_web/mysql/datadir:/var/lib/mysql
-      #- ./ogp_web/mysql/config:/etc/mysql
+      - /var/lib/mysql
+  # agent:
+  #   restart: always
+  #   image: joshhsoj1902/docker-ogpagent-docker
+  #   ports:
+  #    - "12679:12679"
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   environment:
+  #     - OGP_LISTEN_PORT=12679
+  #     - OGP_KEY=encryption_key2
+  #     - OGP_DOCKER_NAMESPACE=joshhsoj1902
