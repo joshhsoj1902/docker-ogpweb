@@ -7,9 +7,9 @@ services:
       - OGP_INSTALL=false
       - MYSQL_IP=my_db
       - MYSQL_PORT=3306
-      - MYSQL_DBNAME=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASS=${DBPASS}
+      - MYSQL_DBNAME=opengamepanel
+      - MYSQL_USER=ogpuser
+      - MYSQL_PASS=foo
       - MYSQL_PREFIX=ogp_
     ports:
       - "10001:80"
@@ -22,9 +22,9 @@ services:
     image: mysql:5.6
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=${DBNAME}
-      - MYSQL_USER=${DBUSER}
-      - MYSQL_PASSWORD=${DBPASS}
+      - MYSQL_DATABASE=opengamepanel
+      - MYSQL_USER=ogpuser
+      - MYSQL_PASSWORD=foo
     volumes:
       - /var/lib/mysql
   # agent:

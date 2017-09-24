@@ -15,11 +15,13 @@ RUN wget -P ~/public_html https://github.com/OpenGamePanel/OGP-Website/archive/9
   && rm -rf ~/public_html
 
 COPY templates /var/templates
+ADD docker-runner.sh docker-health.sh /
 
-RUN chmod -R 777 /var/www/html/modules/TS3Admin/templates_c
+RUN chmod -R 777 /var/www/html/modules/TS3Admin/templates_c /docker-health.sh
 RUN mv /var/www/html/install.php /var/www/html/install.php.bac
-ADD docker-runner.sh /
 
 WORKDIR /
+
+HEALTHCHECK --start-period=45s CMD /docker-health.sh
 
 CMD ["sh", "/docker-runner.sh"]
