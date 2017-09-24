@@ -23,7 +23,7 @@ jobs:
           name: Pull public docker images in the background
           background: true
           command: |
-             docker pull node:8-alpine
+             docker-compose pull db
       - run:
           name: "Build Image"
           command: |
