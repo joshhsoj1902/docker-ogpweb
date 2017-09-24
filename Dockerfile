@@ -18,8 +18,10 @@ COPY templates /var/templates
 
 RUN chmod -R 777 /var/www/html/modules/TS3Admin/templates_c
 RUN mv /var/www/html/install.php /var/www/html/install.php.bac
-ADD docker-runner.sh /
+ADD docker-runner.sh docker-health.sh /
 
 WORKDIR /
+
+HEALTHCHECK --start-period=45s CMD /docker-health.sh
 
 CMD ["sh", "/docker-runner.sh"]
