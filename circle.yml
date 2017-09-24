@@ -19,7 +19,7 @@ jobs:
       - run:
           name: "Test"
           command: |
-            docker run -d --name web joshhsoj1902/docker-ogpweb:latest
+            docker-compose up -d web joshhsoj1902/docker-ogpweb:latest
             sleep 60
             docker ps
-            docker exec web "/docker-health.sh"
+            docker exec dockerogpweb_web_1 "/docker-health.sh"
