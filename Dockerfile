@@ -1,7 +1,5 @@
 FROM nimmis/apache-php5
 
-MAINTAINER joshhsoj1902
-
 RUN apt-get update
 RUN apt-get install -y php5-mysql php5-xmlrpc php-pear
 
@@ -15,7 +13,9 @@ RUN wget -P ~/public_html https://github.com/OpenGamePanel/OGP-Website/archive/9
   && rm -rf ~/public_html
 
 COPY templates /var/templates
-ADD docker-runner.sh docker-health.sh /
+ADD docker-runner.sh docker-health.sh installer.sh /
+
+RUN chmod +x /installer.sh
 
 RUN chmod -R 777 /var/www/html/modules/TS3Admin/templates_c /docker-health.sh
 RUN mv /var/www/html/install.php /var/www/html/install.php.bac

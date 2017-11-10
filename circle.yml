@@ -35,3 +35,4 @@ jobs:
             sleep 60
             docker ps
             docker exec ogp_web_1 "/docker-health.sh"
+            #TODO: curl and test that the install.php is gone
