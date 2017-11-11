@@ -14,7 +14,7 @@ admin_email=${ADMIN_EMAIL}
 if [ -z "$OGP_INSTALL" ] || [ $OGP_INSTALL = 'false' ]; then
   echo "Not in INSTALL mode"
 else
-  echo "Running in install mode"
+  echo "Starting auto install"
 
   sleep 15 #Give the db container time to start up
   timeout 60s sh -c 'until [ -n "$(curl -ks --head http://localhost)" ]; do echo "waiting for service to start"; sleep 1; done'
@@ -40,5 +40,4 @@ else
   #TODO: Shuld we also insert the agent?
 
   echo "Done installing"
-
 fi
