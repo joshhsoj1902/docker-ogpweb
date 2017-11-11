@@ -27,6 +27,14 @@ else
   #TODO: we could also do some DB checks BEFORE we do this.
   curl --data "step=3&username=$admin_username&password1=$admin_password&password2=$admin_password&email=$ADMIN_EMAIL&next=next" http://localhost/install.php?step=2
 
+  sleep 2
+
+  if curl -v --silent --data "lang=-&ulogin=$admin_username&upassword=$admin_password&login=Login" http://localhost/index.php 2>&1 | grep -q 'Invalid username or password'; then
+    echo "Login failed. Auto Install likely failed"
+    exit 1
+    echo "Done Grepping 1" 
+  fi
+
   mv /var/www/html/install.php /var/www/html/install.php.bac
 
   #TODO: Shuld we also insert the agent?
