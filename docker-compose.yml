@@ -13,7 +13,7 @@ services:
       - MYSQL_PREFIX=ogp_
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=adminadmin
-      - ADMIN_EMAIL=admin@email.com
+      - ADMIN_EMAIL2=admin@email.com
     ports:
       - "10001:80"
     links:
