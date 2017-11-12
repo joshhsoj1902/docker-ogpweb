@@ -35,7 +35,7 @@ jobs:
             sleep 60
             docker ps
             docker exec ogp_web_1 "/docker-health.sh"
-            if [ curl -ks --head http://localhost:10001/install.php ]; then
+            if [ "curl -ks --head http://localhost:10001/install.php" ]; then
               echo "bananas"
             fi
 
