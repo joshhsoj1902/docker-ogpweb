@@ -36,7 +36,7 @@ jobs:
             docker ps
             docker logs ogp_web_1
             docker exec ogp_web_1 "/docker-health.sh"
-            if [ "curl -ksf --head http://localhost:10001/install.php" ]; then
+            if [ ! "curl -ksf --head http://localhost:10001/install.php" ]; then
               echo "BANANA"
               curl -ks --head http://localhost:10001/install.php
               echo "orange"
