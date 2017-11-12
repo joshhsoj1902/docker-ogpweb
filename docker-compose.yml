@@ -4,13 +4,16 @@ services:
     image: joshhsoj1902/docker-ogpweb
     restart: always
     environment:
-      - OGP_INSTALL=false
+      - OGP_INSTALL=true
       - MYSQL_IP=my_db
       - MYSQL_PORT=3306
       - MYSQL_DBNAME=opengamepanel
       - MYSQL_USER=ogpuser
       - MYSQL_PASS=foo
       - MYSQL_PREFIX=ogp_
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=adminadmin
+      - ADMIN_EMAIL=admin@email.com
     ports:
       - "10001:80"
     links:
