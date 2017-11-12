@@ -44,6 +44,8 @@ jobs:
               echo "apple"
               exit 1 # FAILURE
             fi
+            curl -ks --head http://localhost:10001/install.php
+
             echo "APPLE"
 
             # docker exec ogp_web_1 "if [ ! -f '/var/www/html/install.php' ]; then exit 1; fi"
