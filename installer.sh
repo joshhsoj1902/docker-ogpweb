@@ -29,7 +29,7 @@ else
 
   sleep 2
 
-  if curl -v --silent --data "lang=-&ulogin=$admin_username&upassword=$admin_password&login=Login" http://localhost/index.php 2>&1 | grep -q 'Invalid username or password'; then
+  if curl -v --silent --data "lang=-&ulogin=$admin_username&upassword=$admin_username&login=Login" http://localhost/index.php 2>&1 | grep -q 'Invalid username or password'; then
     echo "Login failed. Auto Install likely failed"
     exit 1
     echo "Done Grepping 1" 
