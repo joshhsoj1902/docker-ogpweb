@@ -35,5 +35,7 @@ jobs:
             sleep 60
             docker ps
             docker exec ogp_web_1 "/docker-health.sh"
-            docker exec ogp_web_1 "[ ! -f /var/www/html/install.php ]"
+            curl -ks --head http://localhost:10001/install.php
+
+            # docker exec ogp_web_1 "if [ ! -f '/var/www/html/install.php' ]; then exit 1; fi"
             #TODO: curl and test that the install.php is gone
