@@ -37,8 +37,10 @@ jobs:
             docker logs ogp_web_1
             docker exec ogp_web_1 "/docker-health.sh"
             if [ "curl -ks --head http://localhost:10001/install.php" ]; then
+              echo "BANANA"
               exit 1 # FAILURE
             fi
+            echo "APPLE"
 
             # docker exec ogp_web_1 "if [ ! -f '/var/www/html/install.php' ]; then exit 1; fi"
             #TODO: curl and test that the install.php is gone
