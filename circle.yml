@@ -36,15 +36,15 @@ jobs:
             docker ps
             docker logs ogp_web_1
             docker exec ogp_web_1 "/docker-health.sh"
-            if [ ! "curl -ksf --head http://localhost:10001/install.php" ]; then
+            if [ ! "curl -f --head http://localhost:10001/install.php" ]; then
               echo "BANANA"
-              curl -ks --head http://localhost:10001/install.php
+              curl --silent --show-error --fail http://localhost:10001/install.php
               echo "orange"
-              curl -ksf --head http://localhost:10001/install.php
+              curl -f --head http://localhost:10001/install.php
               echo "apple"
               exit 1 # FAILURE
             fi
-            curl -ks --head http://localhost:10001/install.php
+            curl --silent --show-error --fail http://localhost:10001/install.php
 
             echo "APPLE"
 
