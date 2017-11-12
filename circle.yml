@@ -44,6 +44,7 @@ jobs:
               echo "apple"
               exit 1 # FAILURE
             fi
+            echo "-----------------------------------------s"
             curl --silent --show-error --fail http://localhost:10001/install.php
 
             echo "APPLE"
