@@ -36,7 +36,7 @@ jobs:
             docker ps
             docker logs ogp_web_1
             docker exec ogp_web_1 "/docker-health.sh"
-            docker exec ogp_web_1 "/does-install-exist.sh"
+            docker exec ogp_web_1 "/was-installer-removed.sh"
             # if [ ! "curl -f --head http://localhost:10001/install.php" ]; then
             #   echo "BANANA"
             #   curl --silent --show-error --fail http://localhost:10001/install.php
