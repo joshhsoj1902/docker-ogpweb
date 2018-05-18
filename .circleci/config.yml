@@ -12,17 +12,6 @@ jobs:
       - checkout
       - setup_remote_docker:
           <<: *remote_docker_version
-      # - run:
-      #     name: Upgrade Docker
-      #     command: |
-      #       curl -sSL $DOCKER_URL | sudo tar -xz --strip-components=1 -C /usr/bin/
-      #       sudo service docker restart
-      # - run:
-      #     name: Upgrade Docker Compose
-      #     command: |
-      #       loc=$(which docker-compose)
-      #       sudo curl -sSLf -z $loc -o $loc $DOCKER_COMPOSE_URL
-      #       sudo chmod 755 $loc
       - run:
           name: Pull public docker images in the background
           background: true
