@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: joshhsoj1902/docker-ogpweb
+    image: joshhsoj1902/docker-ogpweb:latest
     restart: always
     environment:
       - OGP_INSTALL=true
