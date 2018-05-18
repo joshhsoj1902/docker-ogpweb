@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: joshhsoj1902/docker-ogpweb
+    image: joshhsoj1902/docker-ogpweb:latest@sha256:53d5012ee0b1f860feefe91c47dc6fc9d0378dff7e0ea0d4f6e9d93893ab3057
     restart: always
     environment:
       - OGP_INSTALL=true
@@ -22,7 +22,7 @@ services:
       - db
   db:
     restart: always
-    image: mysql:5.6
+    image: mysql:5.6@sha256:16eefe638c159c5e94d04d031cce5afae0bb873bb145f2343c36d26ff80ab275
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=opengamepanel
