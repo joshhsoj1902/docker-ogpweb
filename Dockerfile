@@ -1,4 +1,4 @@
-FROM nimmis/apache-php5
+FROM php:5.6.36-jessie
 
 RUN apt-get update
 RUN apt-get install -y php5-mysql php5-xmlrpc php-pear
