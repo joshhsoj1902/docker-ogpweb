@@ -1,4 +1,4 @@
-FROM nimmis/apache-php5
+FROM nimmis/apache-php5:latest@sha256:712d35d5cc30e6a911e260e871f08f77d5684edcc50cba21163535714c547ff5
 
 RUN apt-get update
 RUN apt-get install -y php5-mysql php5-xmlrpc php-pear
