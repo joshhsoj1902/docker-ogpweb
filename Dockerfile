@@ -1,7 +1,7 @@
-FROM nimmis/apache-php5:latest@sha256:712d35d5cc30e6a911e260e871f08f77d5684edcc50cba21163535714c547ff5
+FROM php:5.6.36-apache-jessie
 
 RUN apt-get update
-RUN apt-get install -y php5-mysql php5-xmlrpc php-pear
+RUN apt-get install -y wget unzip
 
 RUN curl -sSLf -z /usr/local/bin/gomplate -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v2.0.0/gomplate_linux-amd64-slim \
   && chmod 755 /usr/local/bin/gomplate
